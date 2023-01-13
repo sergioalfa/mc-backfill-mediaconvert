@@ -15,11 +15,6 @@ You will need to define the following process variables:
 |Variable| Description                                                                                                                     |
 |--------|---------------------------------------------------------------------------------------------------------------------------------|
 |LOCAL_TEST| Used by vidispine sdk.  Should be TRUE so that it uses the extneral URL                                                         |
-You will also need the following VM Variables at RUNTIME:
-
-| Variable                     |Description|
-|------------------------------|-----------|
-| -Dspring.profiles.active=??? |Sets Spring profile. Valid values are qa or prod.
 
 The following file is mandatory to set your parameters based on the env and file used:
 ### config.properties
@@ -41,3 +36,5 @@ After set up all previous variables you can run the full process, and as a uniqu
 ```bash
 $user-> Enter run env supported: {env}
 ```
+
+NOTE: See application-debug.log when finish the process.

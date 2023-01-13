@@ -3,3 +3,9 @@ vidispine:
   env: "PROD"
 mediaconvert:
   url: https://p642t1g0ai.execute-api.us-west-2.amazonaws.com/prod
+logging:
+  file:
+    name: application-debug.log
+  level:
+    root: ERROR
+    fox.mc.backfill.mediaconvert: INFO

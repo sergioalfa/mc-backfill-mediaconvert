@@ -53,14 +53,14 @@ public class VidispineServiceImpl implements VidispineService {
 
     @Override
     public void removeShapeByTag(String itemId, String shapeTag) {
-        log.info("Processing delete tag: " + shapeTag + " item: " + itemId);
+        log.info("Processing delete tag: " + shapeTag + ", item: " + itemId);
         int responseCode = vidispineClient.deleteShapeByTag(itemId, shapeTag);
         if (responseCode == 200) {
-            log.info("Delete response code: " + responseCode + ", Successful shape deleted: " + shapeTag + " itemId: " + itemId);
+            log.info("Delete response code: " + responseCode + ", Successful shape deleted: " + shapeTag + ", itemId: " + itemId);
         } else if (responseCode == 0) {
-            log.warn("Delete response code: " + responseCode + ", not existing shape: " + shapeTag + " itemId: " + itemId);
+            log.warn("Delete response code: " + responseCode + ", not existing shape: " + shapeTag + ", itemId: " + itemId);
         } else {
-            log.warn("Delete response code: " + responseCode + ", please check itemId: " + itemId + " shape: " + shapeTag);
+            log.error("Delete response code: " + responseCode + ", please check itemId: " + itemId + ", shape: " + shapeTag);
         }
     }
 

@@ -19,14 +19,18 @@ public class MediaConvertServiceImpl implements MediaConvertService {
 
     @Override
     public Response sendMediaConvertRequest(String itemId, String tag, String sourceTag) {
-        log.info("MediaConvert request item: " + itemId + ", tag: " + tag + ", and source: " + sourceTag);
         Response response;
         try {
             response = mediaConvertClient.transcodeItem(vidispineService.getToken(), itemId, null, tag, sourceTag);
         } catch (FeignException e) {
             response = Response.builder().request(e.request()).status(e.status()).body(e.contentUTF8().getBytes()).build();
         }
-        log.info("MediaConvert response: " + response);
+
+        if (response.status() != 200) {
+            log.error("Please try again next item: " + itemId + ", shape: " + tag);
+        }
+
+        log.info("MediaConvert response status: " + response.status() + " - " + response.body());
         return response;
     }
 }

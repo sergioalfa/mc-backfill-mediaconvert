@@ -3,3 +3,9 @@ vidispine:
   env: "QA"
 mediaconvert:
   url: https://1027iloby9.execute-api.us-west-2.amazonaws.com/qa
+logging:
+  file:
+    name: application-debug.log
+  level:
+    root: ERROR
+    fox.mc.backfill.mediaconvert: INFO
